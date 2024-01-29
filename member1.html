@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <title>member1</title>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="background" src="assets\background.jpeg">
+            <img id="profile" src="assets\images\pro\plam.jpg">
+            <audio id="backgroundMusic" src="assets\music\DriftveilCity.mp3" preload="auto"></audio>
+        </a-assets>
+        <a-sky color="#ECFFFF" src="#background" radius="40"></a-sky>
+
+        <a-text value="Unda Inthanate" position="-5 1 -2"
+            animation="property: position; to: -1.1 0.5 -2.2; dur: 8000; easing: linear; loop: false"
+            color="#000000"></a-text>
+
+        <a-text value="643020659-1" position="-5 1 -2"
+            animation="property: position; to: -0.9 2 -2; dur: 8000; easing: linear; loop: false"
+            color="#000000"></a-text>
+
+        <a-box cursor="rayOrigin: mouse" class="clickable" id="mem1" position="0 0 0" width="1" height="1"
+            animation="property: position; to: 0 1 -5; dur: 2000; easing: linear"
+            animation__2="property: rotation;; to: 0 360 0; dur: 5000; loop: true;" src="assets\images\pro\plam.jpg">
+            <a-entity geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.1"
+                material="transparent: true; opacity: 0" event-set__1="_event: click; scale: 1.2 1.2 1.2"
+                event-set__2="_event: mouseenter; color: #2980b9" event-set__3="_event: mouseleave; color: #3498db"
+                onclick="playBackgroundMusic()">
+            </a-entity>
+        </a-box>
+
+        <!-- กล่องที่นำไปยังหน้า mem1.html -->
+        <a-box cursor="rayOrigin: mouse" class="clickable" id="mem1" position="0 0 0" width="1" height="1"
+            animation="property: position; to: 3 5 -7; dur: 2000; easing: linear"
+            animation__2="property: rotation;; to: 0 360 0; dur: 5000; loop: true;" src="assets\images\home\Home.png">
+            <a-entity geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.1"
+                material="transparent: true; opacity: 0" event-set__1="_event: click; scale: 1.2 1.2 1.2"
+                event-set__2="_event: mouseenter; color: #2980b9" event-set__3="_event: mouseleave; color: #3498db"
+                onclick="goToMem1Page()">
+            </a-entity>
+        </a-box>
+
+
+    </a-scene>
+
+    <script>
+        function playBackgroundMusic() {
+            var music = document.getElementById('backgroundMusic');
+
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+
+        function goToMem1Page() {
+
+            var targetPage = 'member.html';
+            // ไปยังหน้าเว็บ
+            window.location.href = targetPage;
+        }
+
+
+    </script>
+</body>
+
+</html>

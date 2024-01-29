@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-Frame WebVR Demo</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="background" src="assets\background5.jpeg">
+        </a-assets>
+        <!-- Camera -->
+        <a-camera position="0 1.6 0" wasd-controls-enabled="false" look-controls="reverseMouseDrag: true">
+            <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1"
+                geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                material="color: white; shader: flat"></a-entity>
+        </a-camera>
+
+        <a-box cursor="rayOrigin: mouse" class="clickable" id="mem1" position="0 0 0" width="1" height="1"
+            animation="property: position; to: 3 5 -7; dur: 2000; easing: linear"
+            animation__2="property: rotation;; to: 0 360 0; dur: 5000; loop: true;" src="assets\images\home\Home.png">
+            <a-entity geometry="primitive: box; width: 1.2; height: 1.2; depth: 0.1"
+                material="transparent: true; opacity: 0" event-set__1="_event: click; scale: 1.2 1.2 1.2"
+                event-set__2="_event: mouseenter; color: #2980b9" event-set__3="_event: mouseleave; color: #3498db"
+                onclick="goToMem1Page()">
+            </a-entity>
+        </a-box>
+
+        <a-sky color="#ECFFFF" src="#background" radius="40"></a-sky>
+
+        <!-- Box 1 -->
+        <a-box position="-2 1.6 -4" color="red" onclick="goToVRWeb1(-2, -4)"
+            animation="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true" src="assets\images\pro\plam.jpg">
+            <a-entity position="0 0.5 0" text="value: Member 1; align: center; color: white;" ></a-entity>
+        </a-box>
+
+        <!-- Box 2 -->
+        <a-box position="2 1.6 -4" color="green" onclick="goToVRWeb2(2, -4)"
+            animation="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true" src="assets\images\pro\wari.jpg">
+            <a-entity position="0 0.5 0" text="value: Member 2; align: center; color: white;" ></a-entity>
+        </a-box>
+
+        <!-- Box 3 -->
+        <a-box position="-2 1.6 0" color="blue" onclick="goToVRWeb3(-2, 0)"
+            animation="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true" src="assets\images\pro\few.jpg">
+            <a-entity position="0 0.5 0" text="value: Member 3; align: center; color: white;" ></a-entity>
+        </a-box>
+
+        <!-- Box 4 -->
+        <a-box position="2 1.6 0" color="yellow" onclick="goToVRWeb4(2, 0)"
+            animation="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true"  src="assets\images\pro\owen.jpg">
+            <a-entity position="0 0.5 0" text="value: Member 4; align: center; color: white;"></a-entity>
+        </a-box>
+
+
+
+        <!-- Text -->
+        <a-entity position="0 1.6 -2"
+            text="value: Member; align: center; width: 4; color: black; wrapCount: 20; look-at: [camera]">
+        </a-entity>
+    </a-scene>
+
+    <script>
+        function goToMem1Page() {
+
+            var targetPage = 'index.html';
+            // ไปยังหน้าเว็บ
+            window.location.href = targetPage;
+        }
+
+        function goToVRWeb1(x, z) {
+            const camera = document.querySelector('a-camera');
+            const currentPosition = camera.getAttribute('position');
+            const newX = currentPosition.x + x;
+            const newZ = currentPosition.z + z;
+            camera.setAttribute('animation', `property: position; to: ${newX} 1.6 ${newZ}; dur: 1000`);
+            setTimeout(() => {
+                window.location.href = 'member1.html';
+            }, 1000);
+        }
+    </script>
+    <script>
+        function goToVRWeb2(x, z) {
+            const camera = document.querySelector('a-camera');
+            const currentPosition = camera.getAttribute('position');
+            const newX = currentPosition.x + x;
+            const newZ = currentPosition.z + z;
+            camera.setAttribute('animation', `property: position; to: ${newX} 1.6 ${newZ}; dur: 1000`);
+            setTimeout(() => {
+                window.location.href = 'member2.html';
+            }, 1000);
+        }
+    </script>
+    <script>
+        function goToVRWeb3(x, z) {
+            const camera = document.querySelector('a-camera');
+            const currentPosition = camera.getAttribute('position');
+            const newX = currentPosition.x + x;
+            const newZ = currentPosition.z + z;
+            camera.setAttribute('animation', `property: position; to: ${newX} 1.6 ${newZ}; dur: 1000`);
+            setTimeout(() => {
+                window.location.href = 'member3.html';
+            }, 1000);
+        }
+    </script>
+    <script>
+        function goToVRWeb4(x, z) {
+            const camera = document.querySelector('a-camera');
+            const currentPosition = camera.getAttribute('position');
+            const newX = currentPosition.x + x;
+            const newZ = currentPosition.z + z;
+            camera.setAttribute('animation', `property: position; to: ${newX} 1.6 ${newZ}; dur: 1000`);
+            setTimeout(() => {
+                window.location.href = 'member4.html';
+            }, 1000);
+        }
+    </script>
+
+</body>
+
+</html>
