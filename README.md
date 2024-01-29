@@ -1,2 +1,2 @@
-# web3DwithA-Frame
-web-project web3DwithA-Frame
+# web3D with A-Frame
+web-project web3D with A-Frame
